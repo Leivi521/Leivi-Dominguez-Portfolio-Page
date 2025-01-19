@@ -1,0 +1,109 @@
+& when not (@fullScreen) {
+    padding-top: (@paddingTop * 1rem);
+    padding-bottom: (@paddingBottom * 1rem);
+  }
+  & when (@bg-type = 'color') {
+    background-color: @bg-value;
+  }
+  & when (@bg-type = 'image') {
+    background-image: url(@bg-value);
+  }
+  .mbr-fallback-image.disabled {
+    display: none;
+  }
+  .mbr-fallback-image {
+    display: block;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    & when (@bg-type = 'video') {
+      background-image: url(@fallBackImage);
+    }
+  }
+  .content-wrapper {
+    position: relative;
+    padding: 46px 24px;
+    overflow: hidden;
+    border: 1px solid @border;
+    background-color: @container;
+    @media (max-width: 992px) {
+      padding: 24px 14px 0 14px;
+    }
+    & when (@showTransparent) {
+      background-color: transparent;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: @container;
+        opacity: 0.5;
+      }
+    }
+    .mbr-section-title {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 48px;
+      @media (max-width: 992px) {
+        margin-bottom: 32px;
+      }
+      span {
+        color: @title;
+      }
+    }
+    .items-wrap {
+      position: relative;
+      z-index: 1;
+      justify-content: center;
+      margin: 0 -7px;
+      .item {
+        padding: 0 7px;
+        margin-bottom: 14px;
+        .item-wrapper {
+          padding: 14px 24px 24px;
+          border: 1px solid @border;
+          height: 100%;
+          box-shadow: 1px 0 1px @borderRight;
+          @media (max-width: 992px) {
+            padding: 14px;
+          }
+          .card-box {
+            .title-wrap {
+              .item-title {
+                padding: 14px 32px;
+                background-color: @titleBg;
+                margin-bottom: 16px;
+                @media (max-width: 992px) {
+                  padding: 14px;
+                }
+              }
+            }
+            .item-text {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  .mbr-section-title {
+    color: #ffffff;
+    text-align: center;
+  }
+  .item-title {
+    color: #ffffff;
+    text-align: center;
+  }
+  .item-text {
+    color: #ffffff;
+    text-align: center;
+  }
+  .item-title, .title-wrap {
+    color: #FFFFFF;
+  }
+  

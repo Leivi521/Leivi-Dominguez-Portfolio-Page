@@ -1,0 +1,176 @@
+& when not (@fullScreen) {
+    padding-top: (@paddingTop * 1rem);
+    padding-bottom: (@paddingBottom * 1rem);
+  }
+  & when (@bg-type = 'color') {
+    background-color: @bg-value;
+  }
+  & when (@bg-type = 'image') {
+    background-image: url(@bg-value);
+  }
+  .mbr-fallback-image.disabled {
+    display: none;
+  }
+  .mbr-fallback-image {
+    display: block;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    & when (@bg-type = 'video') {
+      background-image: url(@fallBackImage);
+    }
+  }
+  .title-wrapper {
+    .mbr-section-title {
+      margin-bottom: 100px;
+      @media (max-width: 992px) {
+        margin-bottom: 32px;
+      }
+      span {
+        color: @title;
+      }
+    }
+  }
+  .items-wrap {
+    justify-content: center;
+    margin: 0 -14px;
+  }
+  .item {
+    padding: 0 7px;
+    margin-bottom: 14px;
+    @media (max-width: 992px) {
+      padding: 0 14px;
+    }
+    .item-wrapper {
+      position: relative;
+      border: 1px solid @border;
+      background-color: @card;
+      padding: 24px;
+      overflow: hidden;
+      @media (max-width: 992px) {
+        padding: 14px;
+      }
+      & when (@showGradient) {
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0.5;
+        }
+      }
+      .card-box {
+        position: relative;
+        z-index: 1;
+        .icon-wrapper {
+          margin-bottom: 32px;
+          @media (max-width: 992px) {
+            margin-bottom: 16px;
+          }
+          .icon-wrap {
+            width: 120px;
+            height: 120px;
+            border-radius: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            .mbr-iconfont {
+              font-size: 56px;
+              color: @icon;
+              & when (@showGradient) {
+                background: linear-gradient(@icon 80%, transparent);
+                -webkit-background-clip: text !important;
+                -webkit-text-fill-color: transparent;
+              }
+            }
+          }
+        }
+        .item-title {
+          position: relative;
+          z-index: 1;
+          margin-bottom: 32px;
+          @media (max-width: 992px) {
+            margin-bottom: 16px;
+          }
+        }
+        .tags-wrapper {
+          .list {
+            display: inline-flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            .tag-wrapper {
+              padding: 8px 14px;
+              margin: 5px;
+              border: 1px solid @tagsBorder;
+            }
+          }
+        }
+      }
+    }
+    & when (@showGradient) {
+      .card_1 {
+        &::before {
+          background: linear-gradient(45deg, @gradient_1, @card 50%);
+        }
+      }
+      .card_2 {
+        &::before {
+          background: linear-gradient(45deg, lighten(@gradient_2, 20%), @card 50%);
+        }
+      }
+      .card_3 {
+        &::before {
+          background: linear-gradient(45deg, @gradient_3, @card 50%);
+        }
+      }
+    }
+    .card_1 {
+      .card-box .icon-wrapper .icon-wrap {
+        background-color: @gradient_1;
+      }
+    }
+    .card_2 {
+      .card-box .icon-wrapper .icon-wrap {
+        background-color: lighten(@gradient_2, 20%);
+      }
+    }
+    .card_3 {
+      .card-box .icon-wrapper .icon-wrap {
+        background-color: @gradient_3;
+      }
+    }
+  }
+  & when not (@showGradient) {
+    .item-wrapper {
+      .card-box .icon-wrapper .icon-wrap {
+        background-color: @iconBg !important;
+      }
+    }
+  }
+  .mbr-section-title {
+    color: #ffffff;
+    text-align: center;
+  }
+  .item-title {
+    color: #ffffff;
+  }
+  .list {
+    color: #ffffff;
+    text-align: center;
+  }
+  .item-title, .tags-wrapper, .icon-wrapper {
+    text-align: center;
+    color: #ffffff;
+  }
+  .list, .item-wrap {
+    color: #ffffff;
+  }
+  
