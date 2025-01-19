@@ -31,42 +31,40 @@
     <div id="root"></div>
 
     <!-- React and ReactDOM -->
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react.production.min.js"></script>
     
-    <!-- Babel for JSX -->
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     
     <!-- Component Scripts -->
-    <script type="text/babel" src="components/JS/navbar.js"></script>
-    <script type="text/babel" src="components/JS/home.js"></script>
-    <script type="text/babel" src="components/JS/meetme.js"></script>
-    <script type="text/babel" src="components/JS/skillshowcase.js"></script>
-    <script type="text/babel" src="components/JS/additionalskills.js"></script>
-    <script type="text/babel" src="components/JS/myprojects.js"></script>
-    <script type="text/babel" src="components/JS/whychooseme.js"></script>
-    <script type="text/babel" src="components/JS/letsconnect.js"></script>
+    <script type="text/babel" src="./components/JS/navbar.js"></script>
+    <script type="text/babel" src="./components/JS/home.js"></script>
+    <script type="text/babel" src="./components/JS/meetme.js"></script>
+    <script type="text/babel" src="./components/JS/skillshowcase.js"></script>
+    <script type="text/babel" src="./components/JS/additionalskills.js"></script>
+    <script type="text/babel" src="./components/JS/myprojects.js"></script>
+    <script type="text/babel" src="./components/JS/whychooseme.js"></script>
+    <script type="text/babel" src="./components/JS/letsconnect.js"></script>
     
-    <!-- Main App Component -->
+    <!-- Initialize React App -->
     <script type="text/babel">
-        function App() {
-            return (
-                <div className="portfolio-app">
-                    <Navbar />
-                    <main>
-                        <Home />
-                        <MeetMe />
-                        <SkillShowcase />
-                        <MyProjects />
-                        <WhyChooseMe />
-                        <LetsConnect />
-                    </main>
-                </div>
-            );
-        }
+        const App = () => (
+            <div className="portfolio-app">
+                <Navbar />
+                <main>
+                    <Home />
+                    <MeetMe />
+                    <SkillShowcase />
+                    <MyProjects />
+                    <WhyChooseMe />
+                    <LetsConnect />
+                </main>
+            </div>
+        );
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
+        const domContainer = document.getElementById('root');
+        ReactDOM.createRoot(domContainer).render(<App />);
     </script>
 
     <!-- Bootstrap JavaScript -->
