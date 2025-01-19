@@ -13,44 +13,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="Styles/navbar.css">
-    <link rel="stylesheet" href="Styles/home.css">
-    <link rel="stylesheet" href="Styles/meetme.css">
-    <link rel="stylesheet" href="Styles/skillshowcase.css">
-    <link rel="stylesheet" href="Styles/myprojects.css">
-    <link rel="stylesheet" href="Styles/whychooseme.css">
-    <link rel="stylesheet" href="Styles/letsconnect.css">
-    <link rel="stylesheet" href="Styles/additionalskills.css">
-    
-    <style>
-    /* Base styles to ensure content is visible */
-    body {
-        background-color: #121212;
-        color: white;
-    }
-    section {
-        padding: 5rem 0;
-    }
-    .content-wrapper {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1rem;
-    }
-    .section-title {
-        text-align: center;
-        margin-bottom: 3rem;
-    }
-    </style>
+    <link rel="stylesheet" href="Styles/styles.css">
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Leivi521</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+            <a class="navbar-brand" href="#">
+                <span>Leivi</span>521
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#home">Home</a>
@@ -72,26 +47,30 @@
         </div>
     </nav>
 
-    <!-- Home Section -->
+    <!-- Hero Section -->
     <section id="home" class="hero-section">
         <div class="content-wrapper">
-            <div class="text-content text-center">
-                <h1>Leivi Dominguez</h1>
-                <h2>Full Stack Developer</h2>
-                <p>Transforming ideas into elegant, functional web solutions</p>
+            <div class="text-center">
+                <div class="image-wrapper">
+                    <img src="assets/images/profile.jpg" alt="Leivi Dominguez">
+                </div>
+                <h1 class="mbr-section-title">
+                    Hi, I'm <span>Leivi Dominguez</span>
+                </h1>
+                <p class="mbr-text">Full Stack Developer passionate about creating elegant, functional web solutions</p>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="meet-me-section">
+    <section id="about" class="about-section">
         <div class="content-wrapper">
-            <h2 class="section-title">About Me</h2>
-            <div class="text-content">
-                <p>
+            <h2 class="mbr-section-title">About <span>Me</span></h2>
+            <div class="text-wrapper">
+                <p class="mbr-text">
                     I am a passionate Full Stack Developer with expertise in modern web technologies.
                     My journey in web development has equipped me with a strong foundation in both
-                    front-end and back-end development.
+                    front-end and back-end development, allowing me to create comprehensive web solutions.
                 </p>
             </div>
         </div>
@@ -100,31 +79,31 @@
     <!-- Skills Section -->
     <section id="skills" class="skills-section">
         <div class="content-wrapper">
-            <h2 class="section-title">Technical Skills</h2>
+            <h2 class="mbr-section-title">My <span>Skills</span></h2>
             <div class="skills-grid">
-                <div class="skill-item">
-                    <i class="fab fa-react"></i>
-                    <h3>React</h3>
+                <div class="skill-card">
+                    <i class="skill-icon fab fa-react"></i>
+                    <h3 class="skill-name">React</h3>
                 </div>
-                <div class="skill-item">
-                    <i class="fab fa-node-js"></i>
-                    <h3>Node.js</h3>
+                <div class="skill-card">
+                    <i class="skill-icon fab fa-node-js"></i>
+                    <h3 class="skill-name">Node.js</h3>
                 </div>
-                <div class="skill-item">
-                    <i class="fab fa-js"></i>
-                    <h3>JavaScript</h3>
+                <div class="skill-card">
+                    <i class="skill-icon fab fa-js"></i>
+                    <h3 class="skill-name">JavaScript</h3>
                 </div>
-                <div class="skill-item">
-                    <i class="fab fa-html5"></i>
-                    <h3>HTML5</h3>
+                <div class="skill-card">
+                    <i class="skill-icon fab fa-html5"></i>
+                    <h3 class="skill-name">HTML5</h3>
                 </div>
-                <div class="skill-item">
-                    <i class="fab fa-css3-alt"></i>
-                    <h3>CSS3</h3>
+                <div class="skill-card">
+                    <i class="skill-icon fab fa-css3-alt"></i>
+                    <h3 class="skill-name">CSS3</h3>
                 </div>
-                <div class="skill-item">
-                    <i class="fab fa-git-alt"></i>
-                    <h3>Git</h3>
+                <div class="skill-card">
+                    <i class="skill-icon fab fa-git-alt"></i>
+                    <h3 class="skill-name">Git</h3>
                 </div>
             </div>
         </div>
@@ -133,7 +112,7 @@
     <!-- Projects Section -->
     <section id="projects" class="projects-section">
         <div class="content-wrapper">
-            <h2 class="section-title">My Projects</h2>
+            <h2 class="mbr-section-title">My <span>Projects</span></h2>
             <div class="projects-grid">
                 <div class="project-card">
                     <h3>Portfolio Website</h3>
@@ -152,7 +131,7 @@
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="content-wrapper">
-            <h2 class="section-title">Let's Connect</h2>
+            <h2 class="mbr-section-title">Let's <span>Connect</span></h2>
             <div class="contact-info">
                 <a href="https://github.com/Leivi521" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-github"></i>
