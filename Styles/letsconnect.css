@@ -1,176 +1,73 @@
-& when not (@fullScreen) {
-    padding-top: (@paddingTop * 1rem);
-    padding-bottom: (@paddingBottom * 1rem);
-  }
-  & when (@bg-type = 'color') {
-    background-color: @bg-value;
-  }
-  & when (@bg-type = 'image') {
-    background-image: url(@bg-value);
-  }
-  .mbr-fallback-image.disabled {
-    display: none;
-  }
-  .mbr-fallback-image {
-    display: block;
-    background-size: cover;
-    background-position: center center;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    & when (@bg-type = 'video') {
-      background-image: url(@fallBackImage);
-    }
-  }
-  .title-wrapper {
-    .mbr-section-title {
-      margin-bottom: 100px;
-      @media (max-width: 992px) {
-        margin-bottom: 32px;
-      }
-      span {
-        color: @title;
-      }
-    }
-  }
-  .items-wrap {
-    justify-content: center;
-    margin: 0 -14px;
-  }
-  .item {
-    padding: 0 7px;
-    margin-bottom: 14px;
-    @media (max-width: 992px) {
-      padding: 0 14px;
-    }
-    .item-wrapper {
-      position: relative;
-      border: 1px solid @border;
-      background-color: @card;
-      padding: 24px;
-      overflow: hidden;
-      @media (max-width: 992px) {
-        padding: 14px;
-      }
-      & when (@showGradient) {
-        &::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          opacity: 0.5;
-        }
-      }
-      .card-box {
-        position: relative;
-        z-index: 1;
-        .icon-wrapper {
-          margin-bottom: 32px;
-          @media (max-width: 992px) {
-            margin-bottom: 16px;
-          }
-          .icon-wrap {
-            width: 120px;
-            height: 120px;
-            border-radius: 100%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            .mbr-iconfont {
-              font-size: 56px;
-              color: @icon;
-              & when (@showGradient) {
-                background: linear-gradient(@icon 80%, transparent);
-                -webkit-background-clip: text !important;
-                -webkit-text-fill-color: transparent;
-              }
-            }
-          }
-        }
-        .item-title {
-          position: relative;
-          z-index: 1;
-          margin-bottom: 32px;
-          @media (max-width: 992px) {
-            margin-bottom: 16px;
-          }
-        }
-        .tags-wrapper {
-          .list {
-            display: inline-flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 0;
-            margin: 0;
-            list-style-type: none;
-            .tag-wrapper {
-              padding: 8px 14px;
-              margin: 5px;
-              border: 1px solid @tagsBorder;
-            }
-          }
-        }
-      }
-    }
-    & when (@showGradient) {
-      .card_1 {
-        &::before {
-          background: linear-gradient(45deg, @gradient_1, @card 50%);
-        }
-      }
-      .card_2 {
-        &::before {
-          background: linear-gradient(45deg, lighten(@gradient_2, 20%), @card 50%);
-        }
-      }
-      .card_3 {
-        &::before {
-          background: linear-gradient(45deg, @gradient_3, @card 50%);
-        }
-      }
-    }
-    .card_1 {
-      .card-box .icon-wrapper .icon-wrap {
-        background-color: @gradient_1;
-      }
-    }
-    .card_2 {
-      .card-box .icon-wrapper .icon-wrap {
-        background-color: lighten(@gradient_2, 20%);
-      }
-    }
-    .card_3 {
-      .card-box .icon-wrapper .icon-wrap {
-        background-color: @gradient_3;
-      }
-    }
-  }
-  & when not (@showGradient) {
-    .item-wrapper {
-      .card-box .icon-wrapper .icon-wrap {
-        background-color: @iconBg !important;
-      }
-    }
-  }
-  .mbr-section-title {
-    color: #ffffff;
-    text-align: center;
-  }
-  .item-title {
-    color: #ffffff;
-  }
-  .list {
-    color: #ffffff;
-    text-align: center;
-  }
-  .item-title, .tags-wrapper, .icon-wrapper {
-    text-align: center;
-    color: #ffffff;
-  }
-  .list, .item-wrap {
-    color: #ffffff;
+.features07 {
+  padding: 5rem 0;
+  background-color: #000000;
+}
+
+.features07 .card {
+  border: 1px solid #ffffff;
+  background-color: #000000;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.features07 .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.features07 .card-wrapper {
+  padding: 2rem;
+  text-align: center;
+}
+
+.features07 .iconfont-wrapper {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.features07 .iconfont-wrapper a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.features07 .iconfont-wrapper a:hover {
+  color: #AEF800;
+  transform: scale(1.1);
+  display: inline-block;
+}
+
+.features07 .fa-3x {
+  font-size: 3rem;
+}
+
+.features07 .card-title {
+  color: #ffffff;
+  margin: 1rem 0;
+  font-size: 1.5rem;
+}
+
+.features07 .card-text {
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+.features07 .mbr-section-title {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .features07 {
+    padding: 3rem 0;
   }
   
+  .features07 .card-wrapper {
+    padding: 1.5rem;
+  }
+  
+  .features07 .fa-3x {
+    font-size: 2.5rem;
+  }
+}

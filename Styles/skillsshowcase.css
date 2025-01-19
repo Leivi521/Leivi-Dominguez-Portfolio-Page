@@ -1,0 +1,103 @@
+.skills-section {
+    padding: 5rem 0;
+    background-color: #000000;
+  }
+  
+  .skills-section .content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .skills-section .mbr-section-title {
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .skills-section .mbr-section-title span {
+    color: #fe1e52;
+  }
+  
+  .skills-section .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  
+  .skills-section .skill-card {
+    background-color: #292739;
+    border: 1px solid #fe1e52;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .skills-section .skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(254, 30, 82, 0.2);
+  }
+  
+  .skills-section .skill-icon {
+    font-size: 3rem;
+    color: #fe1e52;
+    margin-bottom: 1rem;
+  }
+  
+  .skills-section .skill-name {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  .skills-section .skill-description {
+    color: #ffffff;
+    opacity: 0.9;
+    line-height: 1.6;
+  }
+  
+  .skills-section .progress-container {
+    margin-top: 1rem;
+  }
+  
+  .skills-section .progress {
+    height: 8px;
+    background-color: #1a1a1a;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .skills-section .progress-bar {
+    background-color: #fe1e52;
+    transition: width 1s ease;
+  }
+  
+  .skills-section .skill-level {
+    color: #ffffff;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  
+  @media (max-width: 768px) {
+    .skills-section {
+      padding: 3rem 0;
+    }
+  
+    .skills-section .mbr-section-title {
+      font-size: 2rem;
+    }
+  
+    .skills-section .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .skills-section .skill-card {
+      padding: 1.5rem;
+    }
+  }
+  

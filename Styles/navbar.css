@@ -240,10 +240,16 @@ position: relative;
   }
 }
 .navbar {
+  background-color: #000000;
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   min-height: 90px;
   transition: all 0.3s;
   border-bottom: 1px solid transparent;
-  background: transparent !important;
   &:not(.navbar-short) {
   }
   &.opened {
@@ -401,110 +407,6 @@ position: relative;
       transform: none;
       top: -12px;
     }
-  }
-}
-.navbar .dropdown.open > .dropdown-menu {
-  display: flex;
-}
-ul.navbar-nav {
-  flex-wrap: wrap;
-}
-.navbar-buttons {
-  text-align: center;
-  min-width: 140px;
-  @media (max-width: 992px) {
-    text-align: left;
-  }
-}
-button.navbar-toggler {
-  outline: none;
-  width: 31px;
-  height: 20px;
-  cursor: pointer;
-  transition: all 0.2s;
-  position: relative;
-  align-self: center;
-  .hamburger span {
-    position: absolute;
-    right: 0;
-    width: 30px;
-    height: 2px;
-    border-right: 5px;
-    background-color: @hamburgerColor;
-    &:nth-child(1) {
-      top: 0;
-      transition: all 0.2s;
-    }
-    &:nth-child(2) {
-      top: 8px;
-      transition: all 0.15s;
-    }
-    &:nth-child(3) {
-      top: 8px;
-      transition: all 0.15s;
-    }
-    &:nth-child(4) {
-      top: 16px;
-      transition: all 0.2s;
-    }
-  }
-}
-nav.opened .hamburger span {
-  &:nth-child(1) {
-    top: 8px;
-    width: 0;
-    opacity: 0;
-    right: 50%;
-    transition: all 0.2s;
-  }
-  &:nth-child(2) {
-    transform: rotate(45deg);
-    transition: all 0.25s;
-  }
-  &:nth-child(3) {
-    transform: rotate(-45deg);
-    transition: all 0.25s;
-  }
-  &:nth-child(4) {
-    top: 8px;
-    width: 0;
-    opacity: 0;
-    right: 50%;
-    transition: all 0.2s;
-  }
-}
-.navbar-dropdown {
-  padding: 0 1rem;
-}
-a.nav-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.icons-menu {
-  flex-wrap: nowrap;
-  display: flex;
-  justify-content: center;
-  padding-left: 1rem;
-  padding-right: 0;
-  padding-top: 0.3rem;
-  text-align: center;
-  @media (max-width: 992px) {
-    justify-content: flex-start;
-    margin-bottom: 0.5rem;
-  }
-}
-@media screen and (~'-ms-high-contrast: active'), (~'-ms-high-contrast: none') {
-  .navbar {
-    height: 70px;
-    &.opened {
-      height: auto;
-    }
-  }
-  .nav-item .nav-link:hover::before {
-    width: 175%;
-    max-width: calc(100% ~"+" 2rem);
-    left: -1rem;
   }
 }
 .navbar .dropdown > .dropdown-menu {
@@ -772,4 +674,82 @@ a.nav-link {
 }
 .nav-link,.dropdown-item {
   color: #000000;
+}
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  color: #ffffff !important;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.navbar-brand:hover {
+  color: #fe1e52 !important;
+}
+.navbar-brand img {
+  max-height: 48px;
+  margin-right: 1rem;
+  border-radius: 8px;
+}
+.navbar-toggler {
+  border-color: #ffffff;
+  background-color: transparent;
+  padding: 0.5rem;
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+.navbar-nav {
+  margin-left: auto;
+}
+.nav-item {
+  margin: 0 0.5rem;
+}
+.nav-link {
+  color: #ffffff !important;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem !important;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.nav-link:hover {
+  color: #fe1e52 !important;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #fe1e52;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+@media (max-width: 991px) {
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+  .navbar-brand img {
+    max-height: 40px;
+  }
+  .navbar-collapse {
+    background-color: #000000;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+  }
+  .nav-item {
+    margin: 0.5rem 0;
+  }
+  .nav-link {
+    padding: 0.5rem 0 !important;
+  }
 }

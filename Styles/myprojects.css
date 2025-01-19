@@ -1,180 +1,96 @@
-& when not (@fullScreen) {
-    padding-top: (@paddingTop * 1rem);
-    padding-bottom: (@paddingBottom * 1rem);
+.about-section {
+  padding: 3rem 0;
+  background-color: #000000;
+}
+
+.about-section .content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.about-section .mbr-section-title {
+  color: #ffffff;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.about-section .mbr-section-title span {
+  color: #fe1e52;
+}
+
+.about-section .text-wrapper {
+  background-color: #292739;
+  border: 1px solid #fe1e52;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.about-section .text-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(254, 30, 82, 0.2);
+}
+
+.about-section .mbr-text {
+  color: #ffffff;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.about-section .items-wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.about-section .card {
+  background-color: #292739;
+  border: 1px solid #fe1e52;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.about-section .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(254, 30, 82, 0.2);
+}
+
+.about-section .card-title {
+  color: #ffffff;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  font-weight: bold;
+}
+
+.about-section .card-text {
+  color: #ffffff;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 2rem 0;
   }
-  & when (@bg-type = 'color') {
-    background-color: @bg-value;
+
+  .about-section .mbr-section-title {
+    font-size: 1.8rem;
   }
-  & when (@bg-type = 'image') {
-    background-image: url(@bg-value);
+
+  .about-section .text-wrapper {
+    padding: 1.2rem;
   }
-  .mbr-fallback-image.disabled {
-    display: none;
+
+  .about-section .items-wrap {
+    grid-template-columns: 1fr;
   }
-  .mbr-fallback-image {
-    display: block;
-    background-size: cover;
-    background-position: center center;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    & when (@bg-type = 'video') {
-      background-image: url(@fallBackImage);
-    }
-  }
-  .content-wrapper {
-    position: relative;
-    padding: 46px 24px 74px 24px;
-    overflow: hidden;
-    border: 1px solid @border;
-    background-color: @container;
-    @media (max-width: 992px) {
-      padding: 24px 14px;
-    }
-    & when (@showGradient) {
-      background-color: transparent;
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(45deg, @gradient, darken(@container, 50%));
-        opacity: .3;
-      }
-    }
-    .mbr-section-title {
-      position: relative;
-      z-index: 1;
-      margin-bottom: 48px;
-      @media (max-width: 992px) {
-        margin-bottom: 32px;
-      }
-    }
-    .items-wrap {
-      position: relative;
-      z-index: 1;
-      justify-content: center;
-      margin: 0 -7px;
-      .item {
-        padding: 0 7px;
-        margin-bottom: 14px;
-        .item-img {
-          position: relative;
-          border: 1px solid @border;
-          box-shadow: 0px -1px 1px @borderTop;
-          overflow: hidden;
-          background-color: @card;
-          & when (@showGradient) {
-            background-color: transparent;
-            &::before {
-              content: '';
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              background-color: @card;
-              opacity: .5;
-            }
-          }
-          .item-title {
-            position: relative;
-            z-index: 1;
-            padding: 24px;
-            margin-bottom: 0;
-            @media (max-width: 992px) {
-              padding: 14px;
-            }
-          }
-          .image-wrap {
-            position: relative;
-            z-index: 1;
-            img {
-              height: 220px;
-              width: 100%;
-              object-fit: cover;
-              border-radius: 0 !important;
-            }
-          }
-        }
-        .item-content {
-          position: relative;
-          padding: 24px;
-          overflow: hidden;
-          border: 1px solid @border;
-          background-color: @card;
-          @media (max-width: 992px) {
-            padding: 14px;
-          }
-          & when (@showGradient) {
-            background-color: transparent;
-            &::before {
-              content: '';
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              background-color: @card;
-              opacity: .5;
-            }
-          }
-          .list {
-            position: relative;
-            z-index: 1;
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
-            .item-wrap {
-              padding-left: 24px;
-              position: relative;
-              margin-bottom: 16px;
-              &:last-child {
-                margin-bottom: 0;
-              }
-              &::before {
-                content: '';
-                position: absolute;
-                top: 8px;
-                left: 0;
-                width: 12px;
-                height: 12px;
-                border-radius: 100%;
-                background: @marker;
-                & when (@showGradient) {
-                  background: linear-gradient(-125deg, @marker 30%, darken(@marker, 50%));
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    .mbr-section-btn {
-      position: relative;
-      z-index: 1;
-      margin-top: 64px;
-      @media (max-width: 992px) {
-        margin-top: 14px;
-      }
-    }
-  }
-  .btn-wrapper {
-    margin-top: -6%;
-  }
-  .mbr-section-title {
-    color: #ffffff;
-  }
-  .item-title {
-    color: #ffffff;
-  }
-  .list {
-    color: #bbbbbb;
-  }
-  .mbr-section-title, .mbr-section-btn {
-    text-align: center;
-  }
-  
+}
