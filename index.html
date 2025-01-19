@@ -3,12 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Leivi Dominguez - Full Stack Developer Portfolio showcasing expertise in React, Node.js, and modern web technologies">
-    <meta name="keywords" content="Full Stack Developer, React Developer, Web Development, Portfolio, JavaScript, Node.js">
-    <meta name="author" content="Leivi Dominguez">
-    <meta property="og:title" content="Leivi Dominguez - Full Stack Developer Portfolio">
-    <meta property="og:description" content="Explore my projects and skills in web development, featuring React, Node.js, and modern technologies">
-    <meta property="og:type" content="website">
+    <meta name="description" content="Leivi Dominguez - Full Stack Developer Portfolio showcasing expertise in web development and modern technologies">
     <title>Leivi Dominguez - Full Stack Developer Portfolio</title>
     
     <!-- Bootstrap CSS -->
@@ -18,91 +13,196 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="./Styles/navbar.css">
-    <link rel="stylesheet" href="./Styles/home.css">
-    <link rel="stylesheet" href="./Styles/meetme.css">
-    <link rel="stylesheet" href="./Styles/skillshowcase.css">
-    <link rel="stylesheet" href="./Styles/additionalskills.css">
-    <link rel="stylesheet" href="./Styles/myprojects.css">
-    <link rel="stylesheet" href="./Styles/whychooseme.css">
-    <link rel="stylesheet" href="./Styles/letsconnect.css">
+    <link rel="stylesheet" href="/Leivi-Dominguez-Portfolio-Page-main/Styles/navbar.css">
+    <link rel="stylesheet" href="/Leivi-Dominguez-Portfolio-Page-main/Styles/home.css">
+    <link rel="stylesheet" href="/Leivi-Dominguez-Portfolio-Page-main/Styles/meetme.css">
+    <link rel="stylesheet" href="/Leivi-Dominguez-Portfolio-Page-main/Styles/skillshowcase.css">
+    <link rel="stylesheet" href="/Leivi-Dominguez-Portfolio-Page-main/Styles/myprojects.css">
+    <link rel="stylesheet" href="/Leivi-Dominguez-Portfolio-Page-main/Styles/whychooseme.css">
+    <link rel="stylesheet" href="/Leivi-Dominguez-Portfolio-Page-main/Styles/letsconnect.css">
+    
+    <style>
+    /* Fallback styles in case CSS files don't load */
+    .navbar {
+        background-color: #1a1a1a;
+        padding: 1rem 0;
+    }
+    
+    .navbar-dark .navbar-nav .nav-link {
+        color: white;
+        padding: 0.5rem 1rem;
+    }
+    
+    .hero-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #121212;
+        color: white;
+        padding: 2rem 0;
+    }
+    
+    .section-title {
+        color: white;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .content-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+    
+    section {
+        padding: 5rem 0;
+        background-color: #121212;
+        color: white;
+    }
+    
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        padding: 2rem 0;
+    }
+    
+    .skill-item {
+        text-align: center;
+        padding: 2rem;
+        background-color: #1a1a1a;
+        border-radius: 8px;
+    }
+    
+    .skill-item i {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        font-size: 2rem;
+    }
+    
+    .contact-info a {
+        color: white;
+        transition: color 0.3s ease;
+    }
+    
+    .contact-info a:hover {
+        color: #007bff;
+    }
+    </style>
 </head>
 <body>
-    <div id="root"></div>
-
-    <!-- React and ReactDOM -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    
-    <!-- React Components -->
-    <script type="text/babel">
-        // Navbar Component
-        const Navbar = () => (
-            <nav className="navbar navbar-expand-lg navbar-dark">
-                <div className="container">
-                    <a className="navbar-brand" href="/">Leivi521</a>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-                        <div className="hamburger">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav ms-auto">
-                            <li className="nav-item">
-                                <a className="nav-link" href="#home">Home</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#skills">Skills</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#about">About Me</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#contact">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        );
-
-        // Home Component
-        const Home = () => (
-            <section className="hero-section" id="home">
-                <div className="content-wrapper">
-                    <div className="image-wrapper">
-                        <img src="assets/images/profile.jpg" alt="Leivi Dominguez - Full Stack Developer" />
-                    </div>
-                    <div className="text-content">
-                        <h1>Leivi Dominguez</h1>
-                        <h2>Full Stack Developer</h2>
-                        <p>Transforming ideas into elegant, functional web solutions</p>
-                    </div>
-                </div>
-            </section>
-        );
-
-        // App Component
-        const App = () => (
-            <div className="portfolio-app">
-                <Navbar />
-                <main>
-                    <Home />
-                </main>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Leivi521</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
             </div>
-        );
+        </div>
+    </nav>
 
-        // Initialize React
-        const container = document.getElementById('root');
-        const root = ReactDOM.createRoot(container);
-        root.render(<App />);
-    </script>
+    <!-- Home Section -->
+    <section class="hero-section" id="home">
+        <div class="content-wrapper">
+            <div class="text-content text-center">
+                <h1>Leivi Dominguez</h1>
+                <h2>Full Stack Developer</h2>
+                <p>Transforming ideas into elegant, functional web solutions</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Me Section -->
+    <section id="about" class="meet-me-section">
+        <div class="content-wrapper">
+            <h2 class="section-title">
+                About <span>Me</span>
+            </h2>
+            <div class="text-content">
+                <p>
+                    I am a passionate Full Stack Developer with expertise in modern web technologies.
+                    My journey in web development has equipped me with a strong foundation in both
+                    front-end and back-end development.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="content-wrapper">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fab fa-react"></i>
+                    <h3>React</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-node-js"></i>
+                    <h3>Node.js</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML5</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-css3-alt"></i>
+                    <h3>CSS3</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-git-alt"></i>
+                    <h3>Git</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="content-wrapper">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-info">
+                <a href="https://github.com/Leivi521" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/yourlinkedin" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </section>
 
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="/Leivi-Dominguez-Portfolio-Page-main/js/main.js"></script>
 </body>
 </html>
