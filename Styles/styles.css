@@ -618,3 +618,90 @@ section {
 .animate {
     animation: fadeIn 0.6s ease-out forwards;
 }
+
+/* Bootstrap Overrides */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #d31843;
+    border-color: #d31843;
+}
+
+.btn-outline-light:hover {
+    color: var(--primary-color);
+}
+
+.badge {
+    padding: 0.5em 1em;
+    margin-right: 0.5rem;
+}
+
+/* Modal Styles */
+.modal-content {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.modal-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.modal-footer {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
+}
+
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--primary-color);
+    color: var(--text-color);
+    box-shadow: 0 0 0 0.25rem rgba(254, 30, 82, 0.25);
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 3rem 0;
+        margin-top: 66px;
+    }
+
+    .hero-section .mbr-section-title {
+        font-size: 2rem;
+    }
+
+    .hero-section .mbr-text {
+        font-size: 1.1rem;
+    }
+
+    .section-title h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate {
+    animation: fadeIn 0.6s ease-out forwards;
+}
