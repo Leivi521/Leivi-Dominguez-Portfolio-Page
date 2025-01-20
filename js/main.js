@@ -174,3 +174,160 @@ document.querySelectorAll('.skill-card, .project-card, .text-wrapper').forEach(e
 // Listen for scroll events
 window.addEventListener('scroll', animateOnScroll);
 window.addEventListener('load', animateOnScroll);
+
+// Project Filtering
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+// Show all projects initially with animation
+window.addEventListener('load', () => {
+    projectCards.forEach((card, index) => {
+        setTimeout(() => {
+            card.classList.add('show');
+        }, index * 100);
+    });
+});
+
+filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
+        
+        const filterValue = btn.getAttribute('data-filter');
+        
+        projectCards.forEach(card => {
+            card.classList.remove('show');
+            
+            setTimeout(() => {
+                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.classList.add('show');
+                    }, 10);
+                } else {
+                    card.style.display = 'none';
+                }
+            }, 300);
+        });
+    });
+});
+
+// Add intersection observer for scroll animations
+const animateOnScroll = () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.animate').forEach(element => {
+        observer.observe(element);
+    });
+};
+
+// Initialize scroll animations
+animateOnScroll();
+
+// Theme Toggle Functionality
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = themeToggle.querySelector('i');
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+// Check for saved theme preference or use system preference
+const currentTheme = localStorage.getItem('theme') || 
+                    (prefersDarkScheme.matches ? 'dark' : 'light');
+document.documentElement.setAttribute('data-theme', currentTheme);
+updateThemeIcon(currentTheme);
+
+// Theme toggle click handler
+themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+});
+
+// Update moon/sun icon based on theme
+function updateThemeIcon(theme) {
+    themeIcon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+}
+
+// Contact Form Handling with EmailJS
+function sendEmail(event) {
+    event.preventDefault();
+    
+    // Get form data
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value
+    };
+
+    // Send email using EmailJS
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: 'leivi55555@gmail.com'
+    })
+    .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+        alert('Thank you for your message! I will get back to you soon.');
+        event.target.reset();
+    }, function(error) {
+        console.log('FAILED...', error);
+        alert('Oops! Something went wrong. Please try again later.');
+    });
+
+    return false;
+}
+
+// Smooth Scroll for Navigation Links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Navbar Background Change on Scroll
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Add Animation on Scroll
+const animateOnScroll = () => {
+    const elements = document.querySelectorAll('.animate');
+    
+    elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight;
+        
+        if (elementPosition < screenPosition) {
+            element.classList.add('animated');
+        }
+    });
+};
+
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
