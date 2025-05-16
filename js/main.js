@@ -149,32 +149,6 @@ document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
     });
 });
 
-// Add animation class to elements when they come into view
-const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.skill-card, .project-card, .text-wrapper');
-    
-    elements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementBottom = element.getBoundingClientRect().bottom;
-        
-        if (elementTop < window.innerHeight && elementBottom > 0) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }
-    });
-};
-
-// Initialize elements with opacity 0 and transform
-document.querySelectorAll('.skill-card, .project-card, .text-wrapper').forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(20px)';
-    element.style.transition = 'all 0.6s ease-out';
-});
-
-// Listen for scroll events
-window.addEventListener('scroll', animateOnScroll);
-window.addEventListener('load', animateOnScroll);
-
 // Project Filtering
 const filterButtons = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
@@ -213,25 +187,6 @@ filterButtons.forEach(btn => {
         });
     });
 });
-
-// Add intersection observer for scroll animations
-const animateOnScroll = () => {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.animate').forEach(element => {
-        observer.observe(element);
-    });
-};
-
-// Initialize scroll animations
-animateOnScroll();
 
 // Theme Toggle Functionality
 const themeToggle = document.getElementById('themeToggle');
