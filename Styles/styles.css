@@ -1,8 +1,8 @@
 /* Global Variables */
 :root {
-  --primary-color: #0a0909;
+  --primary-color: #f50505;
   --dark-bg: #181717;
-  --card-bg: #070707;
+  --card-bg: #0c45f14d;
   --text-color: #ffffff;
   --accent-color: #aef800;
   --shadow-color: rgba(254, 30, 82, 0.2);
@@ -16,35 +16,35 @@ body {
   background-color: var(--dark-bg);
   background-image: linear-gradient(
       30deg,
-      var(--primary-color) 12%,
+      rgba(40, 40, 40, 0.2) 12%,
       transparent 12.5%,
       transparent 87%,
-      var(--primary-color) 87.5%,
-      var(--primary-color)
+      rgba(40, 40, 40, 0.2) 87.5%,
+      rgba(40, 40, 40, 0.2)
     ),
     linear-gradient(
       150deg,
-      var(--primary-color) 12%,
+      rgba(40, 40, 40, 0.2) 12%,
       transparent 12.5%,
       transparent 87%,
-      var(--primary-color) 87.5%,
-      var(--primary-color)
+      rgba(40, 40, 40, 0.2) 87.5%,
+      rgba(40, 40, 40, 0.2)
     ),
     linear-gradient(
       30deg,
-      var(--primary-color) 12%,
+      rgba(40, 40, 40, 0.2) 12%,
       transparent 12.5%,
       transparent 87%,
-      var(--primary-color) 87.5%,
-      var(--primary-color)
+      rgba(40, 40, 40, 0.2) 87.5%,
+      rgba(40, 40, 40, 0.2)
     ),
     linear-gradient(
       150deg,
-      var(--primary-color) 12%,
+      rgba(40, 40, 40, 0.2) 12%,
       transparent 12.5%,
       transparent 87%,
-      var(--primary-color) 87.5%,
-      var(--primary-color)
+      rgba(40, 40, 40, 0.2) 87.5%,
+      rgba(40, 40, 40, 0.2)
     ),
     linear-gradient(
       60deg,
@@ -60,7 +60,7 @@ body {
       transparent 25.5%,
       transparent 75%,
       rgba(16, 16, 16, 0.2) 75%,
-      rgba(236, 238, 231, 0.2)
+      rgba(4, 4, 4, 0.2)
     );
   background-size: 60px 100px;
   background-position: 0 0, 0 0, 30px 50px, 30px 50px, 0 0, 30px 50px;
@@ -84,11 +84,11 @@ body::before {
   height: 2500%;
   background: linear-gradient(
     90deg,
-    rgba(52, 61, 95, 0.1) 0%,
-    rgba(174, 248, 0, 0.1) 25%,
-    rgba(236, 238, 231, 0.1) 50%,
-    rgba(174, 248, 0, 0.1) 75%,
-    rgba(52, 61, 95, 0.1) 100%
+    rgba(40, 40, 40, 0.05) 0%,
+    rgba(60, 60, 60, 0.05) 25%,
+    rgba(40, 40, 40, 0.05) 50%,
+    rgba(60, 60, 60, 0.05) 75%,
+    rgba(40, 40, 40, 0.05) 100%
   );
   pointer-events: none;
   z-index: 3;
@@ -106,7 +106,7 @@ body::after {
   background: radial-gradient(
     circle at center,
     transparent 0%,
-    rgba(235, 230, 230, 0.3) 100%
+    rgba(235, 230, 230, 0.1) 100%
   );
   pointer-events: none;
   z-index: 2;
@@ -294,7 +294,6 @@ section::before {
   margin: 0 auto;
   padding: 3rem 0;
 }
-
 
 .resume-content {
   max-width: 1500px;
