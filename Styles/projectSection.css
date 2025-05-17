@@ -1,4 +1,11 @@
 /* Projects Section */
+.projects-section {
+  background-color: rgb(7, 7, 7);
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));

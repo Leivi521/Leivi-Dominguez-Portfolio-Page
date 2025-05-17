@@ -1,0 +1,140 @@
+* Global Variables */
+:root {
+  --primary-color: #eaf0ee;
+  --dark-bg: #000000;
+  --card-bg: #57546c;
+  --text-color: #f5f2f2;
+  --accent-color: #aef800;
+  --shadow-color: rgba(254, 30, 82, 0.2);
+  --section-padding: 5rem;
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
+}
+
+/* Global Styles */
+body {
+  background-color: var(--dark-bg);
+  background-image: linear-gradient(
+      30deg,
+      var(--primary-color) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      var(--primary-color) 87.5%,
+      var(--primary-color)
+    ),
+    linear-gradient(
+      150deg,
+      var(--primary-color) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      var(--primary-color) 87.5%,
+      var(--primary-color)
+    ),
+    linear-gradient(
+      30deg,
+      var(--primary-color) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      var(--primary-color) 87.5%,
+      var(--primary-color)
+    ),
+    linear-gradient(
+      150deg,
+      var(--primary-color) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      var(--primary-color) 87.5%,
+      var(--primary-color)
+    ),
+    linear-gradient(
+      60deg,
+      rgba(236, 238, 231, 0.2) 25%,
+      transparent 25.5%,
+      transparent 75%,
+      rgba(236, 238, 231, 0.2) 75%,
+      rgba(236, 238, 231, 0.2)
+    ),
+    linear-gradient(
+      60deg,
+      rgba(236, 238, 231, 0.2) 25%,
+      transparent 25.5%,
+      transparent 75%,
+      rgba(236, 238, 231, 0.2) 75%,
+      rgba(236, 238, 231, 0.2)
+    );
+  background-size: 60px 100px;
+  background-position: 0 0, 0 0, 30px 50px, 30px 50px, 0 0, 30px 50px;
+  animation: patternMove 30s linear infinite;
+  color: var(--text-color);
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  min-height: 20vh;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes patternMove {
+  0% {
+    background-position: 0 0, 0 0, 30px 50px, 30px 50px, 0 0, 30px 50px;
+  }
+  100% {
+    background-position: 60px 100px, 60px 100px, 90px 150px, 90px 150px,
+      60px 100px, 90px 150px;
+  }
+}
+
+section {
+  padding: var(--section-padding) 0;
+  background-color: transparent;
+  overflow: hidden;
+  position: relative;
+}
+
+section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.mbr-section-title {
+  color: var(--text-color);
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.mbr-section-title span {
+  color: var(--primary-color);
+}
