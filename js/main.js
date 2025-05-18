@@ -16,127 +16,148 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar scroll effect
+// Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.querySelector('.navbar');
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('section');
 
     // Navbar scroll effect
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-
-        // Active nav link on scroll
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (window.pageYOffset >= sectionTop - 150) {
-                current = section.getAttribute('id');
+    if (navbar) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
-        });
 
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').substring(1) === current) {
-                link.classList.add('active');
-            }
-        });
-    });
-
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const headerOffset = 80;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-
-                // Close mobile menu if open
-                const navbarCollapse = document.querySelector('.navbar-collapse');
-                if (navbarCollapse.classList.contains('show')) {
-                    navbarCollapse.classList.remove('show');
+            // Active nav link on scroll
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
                 }
-            }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
         });
-    });
-
-    // Project Management
-    const projectForm = document.getElementById('addProjectForm');
-    const projectsContainer = document.querySelector('#projects .row');
-
-    function createProjectCard(data) {
-        const col = document.createElement('div');
-        col.className = 'col-md-6 col-lg-4';
-        
-        const card = document.createElement('div');
-        card.className = 'card project-card h-100 animate';
-        
-        const techBadges = data.technologies.split(',').map(tech => 
-            `<span class="badge bg-primary">${tech.trim()}</span>`
-        ).join('');
-
-        card.innerHTML = `
-            <img src="${data.image || 'https://via.placeholder.com/400x300'}" class="card-img-top" alt="${data.title}">
-            <div class="card-body">
-                <h5 class="card-title">${data.title}</h5>
-                <p class="card-text">${data.description}</p>
-                <div class="tech-stack mb-3">
-                    ${techBadges}
-                </div>
-            </div>
-            <div class="card-footer bg-transparent border-0">
-                ${data.demoUrl ? `<a href="${data.demoUrl}" class="btn btn-primary me-2" target="_blank">Live Demo</a>` : ''}
-                ${data.githubUrl ? `<a href="${data.githubUrl}" class="btn btn-outline-light" target="_blank">GitHub</a>` : ''}
-            </div>
-        `;
-        
-        col.appendChild(card);
-        return col;
     }
 
-    // Handle form submission
-    document.querySelector('#addProjectModal .btn-primary').addEventListener('click', function() {
-        const formData = new FormData(projectForm);
-        const projectData = {
-            title: formData.get('title'),
-            description: formData.get('description'),
-            technologies: formData.get('technologies'),
-            demoUrl: formData.get('demoUrl'),
-            githubUrl: formData.get('githubUrl')
-        };
+    // Initialize particles.js if the container exists
+    const particlesContainer = document.getElementById('particles-js');
+    if (particlesContainer && typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#fe1e52'
+                },
+                shape: {
+                    type: 'circle'
+                },
+                opacity: {
+                    value: 0.5,
+                    random: true
+                },
+                size: {
+                    value: 3,
+                    random: true
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#fe1e52',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'grab'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    push: {
+                        particles_nb: 4
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    }
 
-        // Handle image upload
-        const imageFile = formData.get('image');
-        if (imageFile && imageFile.size > 0) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                projectData.image = e.target.result;
-                const projectCard = createProjectCard(projectData);
-                projectsContainer.appendChild(projectCard);
-            };
-            reader.readAsDataURL(imageFile);
-        } else {
-            const projectCard = createProjectCard(projectData);
-            projectsContainer.appendChild(projectCard);
-        }
-
-        // Close modal and reset form
-        const modal = bootstrap.Modal.getInstance(document.getElementById('addProjectModal'));
-        modal.hide();
-        projectForm.reset();
+    // Add scroll reveal animation
+    window.addEventListener('scroll', () => {
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if (sectionTop < windowHeight * 0.75) {
+                section.classList.add('reveal');
+            }
+        });
     });
+
+    // Initialize elements with opacity 0 and transform
+    document.querySelectorAll('.skill-card, .project-card, .text-wrapper').forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'all 0.6s ease-out';
+    });
+
+    // Add animation class to elements when they come into view
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.skill-card, .project-card, .text-wrapper');
+        
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementBottom = element.getBoundingClientRect().bottom;
+            
+            if (elementTop < window.innerHeight && elementBottom > 0) {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+            }
+        });
+    };
+
+    // Listen for scroll events
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
 });
 
 // Mobile menu collapse on click
@@ -149,28 +170,12 @@ document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
     });
 });
 
-// Add animation class to elements when they come into view
-const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.skill-card, .project-card, .text-wrapper');
-    
-    elements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementBottom = element.getBoundingClientRect().bottom;
-        
-        if (elementTop < window.innerHeight && elementBottom > 0) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }
+// Smooth scroll for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
     });
-};
-
-// Initialize elements with opacity 0 and transform
-document.querySelectorAll('.skill-card, .project-card, .text-wrapper').forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(20px)';
-    element.style.transition = 'all 0.6s ease-out';
 });
-
-// Listen for scroll events
-window.addEventListener('scroll', animateOnScroll);
-window.addEventListener('load', animateOnScroll);
