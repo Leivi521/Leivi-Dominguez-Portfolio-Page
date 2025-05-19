@@ -60,10 +60,22 @@
                 <div class="image-wrapper">
                     <img src="Images/linkinphoto.jpg" alt="Leivi Dominguez">
                     <div class="speech-bubbles">
-                        <div class="speech-bubble top-left" data-message="Full Stack Developer">Full Stack Developer</div>
-                        <div class="speech-bubble top-right" data-message="React Expert">React Expert</div>
-                        <div class="speech-bubble bottom-left" data-message="Problem Solver">Problem Solver</div>
-                        <div class="speech-bubble bottom-right" data-message="Creative Developer">Creative Developer</div>
+                        <div class="speech-bubble top-left">
+                            <div class="bubble-arrow"></div>
+                            Full Stack Developer
+                        </div>
+                        <div class="speech-bubble top-right">
+                            <div class="bubble-arrow"></div>
+                            React Expert
+                        </div>
+                        <div class="speech-bubble bottom-left">
+                            <div class="bubble-arrow"></div>
+                            Problem Solver
+                        </div>
+                        <div class="speech-bubble bottom-right">
+                            <div class="bubble-arrow"></div>
+                            Creative Developer
+                        </div>
                     </div>
                 </div>
                 <h1 class="mbr-section-title">
@@ -313,13 +325,69 @@
     <section id="contact" class="contact-section">
         <div class="content-wrapper">
             <h2 class="mbr-section-title">Let's <span>Connect</span></h2>
-            <div class="contact-info">
-                <a href="https://github.com/Leivi521" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://linkedin.com/in/yourlinkedin" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-linkedin"></i>
-                </a>
+            <div class="contact-container">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>leividominguez521@gmail.com</p>
+                        <a href="mailto:leividominguez521@gmail.com" class="contact-link">Send Email</a>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Location</h3>
+                        <p>Sunnyvale, California</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-phone"></i>
+                        <h3>Phone</h3>
+                        <p>(408) 123-4567</p>
+                        <a href="tel:+14081234567" class="contact-link">Call Me</a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" required>
+                            <label for="subject">Subject</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" required></textarea>
+                            <label for="message">Your Message</label>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Social Links -->
+                <div class="social-links">
+                    <a href="https://github.com/Leivi521" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://linkedin.com/in/leivi-dominguez" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>

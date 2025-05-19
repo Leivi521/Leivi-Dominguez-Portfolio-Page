@@ -241,14 +241,48 @@
   z-index: 10;
   text-align: center;
   letter-spacing: 0.5px;
+  overflow: hidden;
 }
 
+/* Add a subtle shine effect */
 .speech-bubble::after {
   content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+  pointer-events: none;
+}
+
+.speech-bubble::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  border-radius: 27px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.speech-bubble .bubble-arrow {
   position: absolute;
   width: 0;
   height: 0;
   border: 20px solid transparent;
+  z-index: 1;
 }
 
 .speech-bubble.top-left {
@@ -275,28 +309,28 @@
   transform: translate(100%, 50%);
 }
 
-.speech-bubble.top-left::after {
+.speech-bubble.top-left .bubble-arrow {
   border-right-color: var(--primary-color);
   left: 100%;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.speech-bubble.top-right::after {
+.speech-bubble.top-right .bubble-arrow {
   border-left-color: var(--primary-color);
   right: 100%;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.speech-bubble.bottom-left::after {
+.speech-bubble.bottom-left .bubble-arrow {
   border-right-color: var(--primary-color);
   left: 100%;
   bottom: 50%;
   transform: translateY(50%);
 }
 
-.speech-bubble.bottom-right::after {
+.speech-bubble.bottom-right .bubble-arrow {
   border-left-color: var(--primary-color);
   right: 100%;
   bottom: 50%;
@@ -322,6 +356,10 @@
   transform: scale(1) translate(50%, 50%);
 }
 
+.speech-bubble.show::before {
+  opacity: 0.3;
+}
+
 @keyframes floatBubble {
   0%,
   100% {
@@ -332,25 +370,64 @@
   }
 }
 
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  20%,
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
 .speech-bubble.show {
   animation: floatBubble 4s ease-in-out infinite;
 }
 
-/* Add a subtle glow effect */
-.speech-bubble::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-  border-radius: 27px;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+/* Add hover effect for better interactivity */
+.speech-bubble:hover {
+  transform: scale(1.05) translate(-50%, -50%);
+  box-shadow: 0 15px 45px rgba(254, 30, 82, 0.4);
 }
 
-.speech-bubble.show::before {
-  opacity: 0.3;
+.speech-bubble.top-right:hover,
+.speech-bubble.bottom-right:hover {
+  transform: scale(1.05) translate(50%, -50%);
+}
+
+.speech-bubble.bottom-left:hover {
+  transform: scale(1.05) translate(-50%, 50%);
+}
+
+.speech-bubble.bottom-right:hover {
+  transform: scale(1.05) translate(50%, 50%);
+}
+
+/* Add responsive adjustments */
+@media (max-width: 768px) {
+  .speech-bubble {
+    font-size: 1.2rem;
+    max-width: 220px;
+    padding: 15px 20px;
+  }
+
+  .speech-bubble.top-left,
+  .speech-bubble.top-right {
+    top: 0;
+  }
+
+  .speech-bubble.bottom-left,
+  .speech-bubble.bottom-right {
+    bottom: 0;
+  }
+
+  .speech-bubble.top-left,
+  .speech-bubble.bottom-left {
+    left: -25%;
+  }
+
+  .speech-bubble.top-right,
+  .speech-bubble.bottom-right {
+    right: -25%;
+  }
 }
