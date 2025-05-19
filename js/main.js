@@ -158,6 +158,40 @@ document.addEventListener('DOMContentLoaded', function() {
     // Listen for scroll events
     window.addEventListener('scroll', animateOnScroll);
     window.addEventListener('load', animateOnScroll);
+
+    // Speech Bubble Animation
+    const speechBubbles = document.querySelectorAll('.speech-bubble');
+    let currentBubbleIndex = 0;
+
+    function showNextBubble() {
+        // Hide all bubbles
+        speechBubbles.forEach(bubble => {
+            bubble.classList.remove('show');
+            bubble.style.opacity = '0';
+            bubble.style.transform = bubble.classList.contains('top-right') || bubble.classList.contains('bottom-right') 
+                ? 'scale(0.8) translate(100%, -50%)' 
+                : 'scale(0.8) translate(-100%, -50%)';
+        });
+
+        // Show current bubble with a slight delay
+        setTimeout(() => {
+            speechBubbles[currentBubbleIndex].classList.add('show');
+            speechBubbles[currentBubbleIndex].style.opacity = '1';
+            speechBubbles[currentBubbleIndex].style.transform = speechBubbles[currentBubbleIndex].classList.contains('top-right') || 
+                                                              speechBubbles[currentBubbleIndex].classList.contains('bottom-right')
+                ? 'scale(1) translate(50%, -50%)'
+                : 'scale(1) translate(-50%, -50%)';
+        }, 100);
+
+        // Move to next bubble
+        currentBubbleIndex = (currentBubbleIndex + 1) % speechBubbles.length;
+    }
+
+    // Show first bubble immediately
+    showNextBubble();
+
+    // Set interval for bubble rotation
+    setInterval(showNextBubble, 3000);
 });
 
 // Mobile menu collapse on click
